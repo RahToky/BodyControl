@@ -1,6 +1,5 @@
 import 'package:body_control/const/strings.dart';
-import 'package:body_control/pages/interface/routable.dart';
-import 'package:body_control/utils/colorUtil.dart';
+import 'package:body_control/interface/routable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

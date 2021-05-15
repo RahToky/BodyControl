@@ -1,7 +1,7 @@
-import 'package:body_control/pages/authorisation/authorisation.dart';
-import 'package:body_control/pages/form/about_form.dart';
-import 'package:body_control/pages/form/health_form.dart';
-import 'package:body_control/pages/onboarding/onboarding.dart';
+import 'package:body_control/pages/authorisation/authorisation_page.dart';
+import 'package:body_control/pages/form/about_form_page.dart';
+import 'package:body_control/pages/form/health_form_page.dart';
+import 'package:body_control/pages/onboarding/onboarding_page.dart';
 import 'package:body_control/utils/colorUtil.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';

@@ -3,6 +3,10 @@ abstract class Strings{
   static const NEXT = "SUIVANT";
   static const ACCEPT = "ACCEPTER";
   static const CONTINUE = "CONTINUER";
+  static const START = "DEMARRER";
+  static const YES = "OUI";
+  static const NO = "NON";
+
   static const CUSTOM_MY_EXP = "PERSONNALISER MON EXPERIENCE";
   static const CONTINUE_ANONYMOUSLY = "POURSUIVRE ANONYMEMENT";
 
@@ -43,5 +47,6 @@ abstract class Strings{
   static const YOUR_HEALTH = "VOTRE SANTE";
   static const YOUR_CURRENT_WEIGHT = "Votre poids actuel";
   static const YOUR_SIZE = "Votre taille";
+  static const DO_YOU_PRACTICE_SPORT = "Pratiquiez-vous un sport avant votre arthrose ou votre arthroplastie ?";
 
 }

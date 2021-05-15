@@ -1,6 +1,6 @@
 import 'package:body_control/const/strings.dart';
-import 'package:body_control/pages/authorisation/authorisation.dart';
-import 'package:body_control/pages/interface/routable.dart';
+import 'package:body_control/pages/authorisation/authorisation_page.dart';
+import 'package:body_control/interface/routable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
