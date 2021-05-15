@@ -1,5 +1,8 @@
 import 'package:body_control/pages/authorisation/authorisation.dart';
+import 'package:body_control/pages/form/about_form.dart';
+import 'package:body_control/pages/form/health_form.dart';
 import 'package:body_control/pages/onboarding/onboarding.dart';
+import 'package:body_control/utils/colorUtil.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 
@@ -13,27 +16,35 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: ColorUtil.fromHex("#40A7D5"),
+        accentColor: ColorUtil.fromHex("#112948"),
+        hintColor: Colors.grey,
+      ),
       debugShowCheckedModeBanner: false,
       routes: {
-        OnBoardingPages.ROUTE_NAME: (context) => OnBoardingPages(),
-        AuthorisationPage.ROUTE_NAME: (context) => AuthorisationPage()
+        OnBoardingPages().getRouteName(): (context) => OnBoardingPages(),
+        AuthorisationPage().getRouteName(): (context) => AuthorisationPage(),
+        AboutUserFormPage().getRouteName(): (context) => AboutUserFormPage(),
+        HealthFormPage().getRouteName(): (context) => HealthFormPage(),
       },
-      home: SplashScreen(
-        seconds: 1,
-        navigateAfterSeconds: OnBoardingPages(),
-        title: Text(
-          'Welcome In SplashScreen',
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-        ),
-        image: Image.asset('logos/app_logo.png'),
-        backgroundColor: Colors.blue,
-        styleTextUnderTheLoader: TextStyle(),
-        photoSize: 100.0,
-      ),
+      home: (true)
+          ? HealthFormPage()
+          : SplashScreen(
+              seconds: 4,
+              navigateAfterSeconds: OnBoardingPages(),
+              title: Text(
+                'Welcome In SplashScreen',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+              ),
+              image: Image.asset('logos/app_logo.png'),
+              backgroundColor: Colors.blue,
+              styleTextUnderTheLoader: TextStyle(),
+              photoSize: 100.0,
+            ),
     );
   }
 }

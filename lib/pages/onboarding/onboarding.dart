@@ -1,12 +1,13 @@
 import 'package:body_control/const/strings.dart';
 import 'package:body_control/pages/authorisation/authorisation.dart';
+import 'package:body_control/pages/interface/routable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class OnBoardingPages extends StatefulWidget {
-  static const ROUTE_NAME = 'onBoarding';
+class OnBoardingPages extends StatefulWidget implements RoutableWidget{
 
-  const OnBoardingPages({Key key}) : super(key: key);
+  @override
+  String getRouteName() => "/onBoarding";
 
   @override
   _OnBoardingPagesState createState() => _OnBoardingPagesState();
@@ -89,13 +90,13 @@ class _OnBoardingPagesState extends State<OnBoardingPages> {
                     Text(
                       '${data[currentPage]['title']}',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 28,
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 25),
+                    const SizedBox(height: 25),
                     Flexible(
                       child: Text(
                         '${data[currentPage]['description']}',
@@ -116,33 +117,33 @@ class _OnBoardingPagesState extends State<OnBoardingPages> {
                   child: Column(
                     children: [
                       if(currentPage==4)MaterialButton(
-                        height: 55,
+                        height: 50,
                         minWidth: double.infinity,
                         color: Colors.white,
                         elevation: 0,
                         child: Text(
                           '${Strings.CUSTOM_MY_EXP}',
-                          style: TextStyle(color: Colors.black, fontSize: 22),
+                          style: const TextStyle(color: Colors.black, fontSize: 22),
                         ),
-                        shape: BeveledRectangleBorder(
-                          side: BorderSide(color: Colors.white),
+                        shape: const BeveledRectangleBorder(
+                          side: const BorderSide(color: Colors.white),
                         ),
                         onPressed: () {
                           setState(() {
-                            Navigator.pushNamed(context, AuthorisationPage.ROUTE_NAME);
+                            Navigator.pushNamed(context, AuthorisationPage().getRouteName());
                           });
                         },
                       ),
                       SizedBox(height: (currentPage==4)?10:65),
                       MaterialButton(
-                        height: 55,
+                        height: 50,
                         minWidth: double.infinity,
                         child: Text(
                           '${(currentPage<4)?Strings.NEXT:Strings.CONTINUE_ANONYMOUSLY}',
                           style: TextStyle(color: Colors.white, fontSize: 22),
                         ),
-                        shape: BeveledRectangleBorder(
-                          side: BorderSide(color: Colors.white),
+                        shape: const BeveledRectangleBorder(
+                          side: const BorderSide(color: Colors.white),
                         ),
                         onPressed: () {
                           setState(() {

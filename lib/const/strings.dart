@@ -1,6 +1,8 @@
 abstract class Strings{
 
   static const NEXT = "SUIVANT";
+  static const ACCEPT = "ACCEPTER";
+  static const CONTINUE = "CONTINUER";
   static const CUSTOM_MY_EXP = "PERSONNALISER MON EXPERIENCE";
   static const CONTINUE_ANONYMOUSLY = "POURSUIVRE ANONYMEMENT";
 
@@ -20,6 +22,26 @@ abstract class Strings{
   static const ON_BOARDING_TITLE_5_DESC = "Afin de personnaliser le \ncontenu de votre programme \nnous avons besoin d'en savoir \nun peu plus sur vous.\nRassurez-vous ces \ninformations resteront \nstrictement confidentielles.";
 
 
-  /** AUTHORISATION **/
-  static const AUTH_AND_CONFIDENT = 'AUTORISATION ET CONFIDENTIALITE';
+  // AUTHORISATION
+  static const AUTH_AND_CONFIDENT = "AUTORISATION ET \nCONFIDENTIALITE";
+  static const AUTH_CLAUSE_1 = "J'accepte de recevoir vos rappels et vos notifications";
+  static const AUTH_CLAUSE_2 = "J'accepte l'utilisation de traceurs pour améliorer la performance de l'application";
+  static const PRIVACY_POLICY = "politique de confidentialité";
+  static const TERMS_OF_SERVICE = "conditions générales d'utilisation";
+
+  // ABOUT FORM & HEALTH FORM
+  static const TELL_US_ABOUT_YOU = "PARLEZ-NOUS DE VOUS";
+  static const MAN = "Homme";
+  static const WOMAN = "Femme";
+  static const FIRSTNAME = "Prénom";
+  static const LASTNAME = "Nom";
+  static const TOWN = "Ville";
+  static const EMAIL = "Email";
+  static const PASSWORD = "Mot de passe";
+  static const PASSWORD_CONFIRM = "Confirmez votre mot de passe";
+  static const DATE_OF_BIRTH = "Date de naissance (ex: 00/00/000)";
+  static const YOUR_HEALTH = "VOTRE SANTE";
+  static const YOUR_CURRENT_WEIGHT = "Votre poids actuel";
+  static const YOUR_SIZE = "Votre taille";
+
 }
