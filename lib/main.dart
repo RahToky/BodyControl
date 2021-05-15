@@ -1,6 +1,7 @@
 import 'package:body_control/pages/authorisation/authorisation_page.dart';
 import 'package:body_control/pages/form/about_form_page.dart';
 import 'package:body_control/pages/form/health_form_page.dart';
+import 'package:body_control/pages/login/login_page.dart';
 import 'package:body_control/pages/onboarding/onboarding_page.dart';
 import 'package:body_control/utils/colorUtil.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +23,9 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: ColorUtil.fromHex("#40A7D5"),
         accentColor: ColorUtil.fromHex("#112948"),
+        backgroundColor: ColorUtil.fromHex("#40A7D5"),
         hintColor: Colors.grey,
+
       ),
       debugShowCheckedModeBanner: false,
       routes: {
@@ -30,9 +33,10 @@ class _MyAppState extends State<MyApp> {
         AuthorisationPage().getRouteName(): (context) => AuthorisationPage(),
         AboutUserFormPage().getRouteName(): (context) => AboutUserFormPage(),
         HealthFormPage().getRouteName(): (context) => HealthFormPage(),
+        LoginPage().getRouteName(): (context) => LoginPage(),
       },
       home: (true)
-          ? HealthFormPage()
+          ? LoginPage()
           : SplashScreen(
               seconds: 4,
               navigateAfterSeconds: OnBoardingPages(),

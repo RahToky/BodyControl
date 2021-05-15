@@ -49,4 +49,10 @@ abstract class Strings{
   static const YOUR_SIZE = "Votre taille";
   static const DO_YOU_PRACTICE_SPORT = "Pratiquiez-vous un sport avant votre arthrose ou votre arthroplastie ?";
 
+  // LOGIN
+  static const TO_LOGIN = "SE CONNECTER";
+  static const EMAIL_ADDRESS = "Adresse e-mail";
+  static const LOGIN = "ME CONNECTER";
+  static const FORGOT_YOUR_PASSWORD = "Mot de passe oublié";
+  static const REGISTER = "M'inscrire";
 }
