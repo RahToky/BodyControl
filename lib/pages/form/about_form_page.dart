@@ -1,9 +1,6 @@
 import 'package:body_control/const/strings.dart';
 import 'package:body_control/interface/routable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/services.dart';
 
 import 'field.dart';
 import 'gender_toggle.dart';

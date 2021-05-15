@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:body_control/pages/authorisation/authorisation_page.dart';
 import 'package:body_control/pages/form/about_form_page.dart';
 import 'package:body_control/pages/form/health_form_page.dart';
@@ -25,7 +27,6 @@ class _MyAppState extends State<MyApp> {
         accentColor: ColorUtil.fromHex("#112948"),
         backgroundColor: ColorUtil.fromHex("#40A7D5"),
         hintColor: Colors.grey,
-
       ),
       debugShowCheckedModeBanner: false,
       routes: {
@@ -35,20 +36,17 @@ class _MyAppState extends State<MyApp> {
         HealthFormPage().getRouteName(): (context) => HealthFormPage(),
         LoginPage().getRouteName(): (context) => LoginPage(),
       },
-      home: (true)
+      home: (false)
           ? LoginPage()
           : SplashScreen(
-              seconds: 4,
+              seconds: 3,
               navigateAfterSeconds: OnBoardingPages(),
-              title: Text(
-                'Welcome In SplashScreen',
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
-              ),
-              image: Image.asset('logos/app_logo.png'),
               backgroundColor: Colors.blue,
-              styleTextUnderTheLoader: TextStyle(),
-              photoSize: 100.0,
+              useLoader: false,
+              imageBackground: AssetImage('assets/logos/splash.png'),
             ),
     );
   }
 }
+
+class MySplashScreen extends SplashScreen {}
