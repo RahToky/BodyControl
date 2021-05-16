@@ -15,8 +15,6 @@ class HomePage extends StatefulWidget implements RoutableWidget {
   @override
   String getRouteName() => "/home";
 
-  const HomePage({Key key}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -24,31 +22,41 @@ class HomePage extends StatefulWidget implements RoutableWidget {
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
   TabController _tabController;
 
-  final pageTitles = [Strings.ACTUALITIES,Strings.EXERCISES,Strings.PROGRESS,Strings.PROGRESS,Strings.FAVORITES];
+  final List<MyTabDetail> tabDetail = [
+    MyTabDetail(Strings.ACTUALITIES, [Colors.grey[200],Colors.grey[200]],Colors.grey),
+    MyTabDetail(Strings.EXERCISES, [ColorUtil.fromHex("#112b4b"),ColorUtil.fromHex("#1b4466")],Colors.grey[300]),
+    MyTabDetail(Strings.PROGRESS, [ColorUtil.fromHex("#696185"),ColorUtil.fromHex("#23496c")],Colors.grey[300]),
+    MyTabDetail(Strings.PROGRESS, [ColorUtil.fromHex("#696185"),ColorUtil.fromHex("#23496c")],Colors.grey[300]),
+    MyTabDetail(Strings.FAVORITES, [ColorUtil.fromHex("#afa4d8"),ColorUtil.fromHex("#9fcbf9")],Colors.white),
+  ];
+
   String currentTitle;
+  Color currentTitleColor;
+  List<Color> currentTabColor;
 
   @override
   void initState() {
     super.initState();
-    currentTitle = Strings.ACTUALITIES;
-    _tabController = TabController(length: 5, vsync: this)
+    currentTitle = tabDetail[0].title;
+    currentTitleColor = tabDetail[0].titleColor;
+    currentTabColor = tabDetail[0].colors;
+    _tabController = TabController(length: tabDetail.length, vsync: this)
       ..addListener(() {
         setState(() {
-          currentTitle = pageTitles[_tabController.index];
+          currentTitle = tabDetail[_tabController.index].title;
+          currentTitleColor = tabDetail[_tabController.index].titleColor;
+          currentTabColor = tabDetail[_tabController.index].colors;
         });
       });
   }
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light));
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primaryColor: ColorUtil.fromHex("#40A7D5"),
-          accentColor: ColorUtil.fromHex("#112948"),
-          backgroundColor: ColorUtil.fromHex("#40A7D5"),
-          hintColor: Colors.grey,
-        ),
         home: DefaultTabController(
           length: 5,
           child: Scaffold(
@@ -58,7 +66,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
               backgroundColor: Colors.grey[200],
               title: Text(
                 '$currentTitle',
-                style: TextStyle(color: Colors.grey),
+                style: TextStyle(color: currentTitleColor),
               ),
               actions: [
                 const Icon(
@@ -70,6 +78,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   width: 15,
                 )
               ],
+              flexibleSpace: Container(
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: currentTabColor)
+                ),
+              ),
             ),
             body: TabBarView(
               physics: NeverScrollableScrollPhysics(),
@@ -85,4 +101,12 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           ),
         ));
   }
+}
+
+
+class MyTabDetail{
+  final String title;
+  final List<Color> colors;
+  final Color titleColor;
+  MyTabDetail(this.title,this.colors,this.titleColor);
 }

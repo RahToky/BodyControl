@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:body_control/pages/home/home_page.dart';
 import 'package:body_control/utils/colorUtil.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 import 'pages/intro/form/about_form_page.dart';
@@ -23,6 +24,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light));
     return MaterialApp(
       theme: ThemeData(
         primaryColor: ColorUtil.fromHex("#40A7D5"),
