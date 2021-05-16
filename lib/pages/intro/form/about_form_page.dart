@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'field.dart';
 import 'gender_toggle.dart';
+import 'health_form_page.dart';
 
 class AboutUserFormPage extends StatelessWidget implements RoutableWidget {
   @override
@@ -63,7 +64,8 @@ class AboutUserFormPage extends StatelessWidget implements RoutableWidget {
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                       shape: BeveledRectangleBorder(),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, HealthFormPage().getRouteName());},
                     ),
                     SizedBox(height: 15),
                     Text(

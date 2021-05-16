@@ -32,6 +32,7 @@ abstract class Strings{
   static const AUTH_CLAUSE_2 = "J'accepte l'utilisation de traceurs pour améliorer la performance de l'application";
   static const PRIVACY_POLICY = "politique de confidentialité";
   static const TERMS_OF_SERVICE = "conditions générales d'utilisation";
+  static const YOUR_DATA_IS_CONFIDENTIAL = "Vos données personnelles restent strictement confidentielles et nous en assurons la protection.";
 
   // ABOUT FORM & HEALTH FORM
   static const TELL_US_ABOUT_YOU = "PARLEZ-NOUS DE VOUS";
@@ -55,4 +56,19 @@ abstract class Strings{
   static const LOGIN = "ME CONNECTER";
   static const FORGOT_YOUR_PASSWORD = "Mot de passe oublié";
   static const REGISTER = "M'inscrire";
+
+  //HOME
+  static const ACTUALITIES = "Actualités";
+  static const EXERCISES = "Exercices";
+  static const PROGRESS = "Progrès";
+  static const FAVORITES = "Favoris";
+
+  //ACTUALITY
+  static const ACT_1_TITLE = "Prothèse du genou connectée.\nUne première française à Brest";
+  static const ACT_2_TITLE = "NATATION - Nouveau programme\nRenforcez votre hanche";
+  static const ACT_3_TITLE = "Le sucre : ami ou ennemi de votre arthrose";
+  static const FAV_1_TITLE = "Les aliments qui favorisent l'inflammation de vos articulations";
+  static const FAV_2_TITLE = "Le régime cétogème est-il bon pour votre arthrose ?";
+  static const PUB_1_TEXT = "Bravo ! Vous avez débloqué le badge < Spartiate > qui récompense votre résistance à la douleur";
+  static const PUB_2_TEXT = "Votre pose de prothèse a lieu dans 1 mois. C'est le moment d'assouplir votre hanche";
 }

@@ -1,5 +1,6 @@
 import 'package:body_control/const/strings.dart';
 import 'package:body_control/interface/routable.dart';
+import 'package:body_control/pages/intro/form/about_form_page.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -38,7 +39,7 @@ class AuthorisationPage extends StatelessWidget implements RoutableWidget {
                     '${Strings.AUTH_AND_CONFIDENT}',
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 23,
+                      fontSize: 28,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -62,6 +63,8 @@ class AuthorisationPage extends StatelessWidget implements RoutableWidget {
                       const SizedBox(height: 40),
                       Condition('${Strings.AUTH_CLAUSE_2}', buttonColor,
                           bgColor, _buildCustomCondition(), true),
+                      const SizedBox(height: 40),
+                      Text('${Strings.YOUR_DATA_IS_CONFIDENTIAL}',style: TextStyle(color: Colors.white,fontSize: 19,fontWeight: FontWeight.bold),textAlign: TextAlign.center,)
                     ],
                   ),
                 ),
@@ -86,7 +89,8 @@ class AuthorisationPage extends StatelessWidget implements RoutableWidget {
                         shape: BeveledRectangleBorder(
                           side: BorderSide(color: buttonColor),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, AboutUserFormPage().getRouteName());},
                       ),
                       const SizedBox(height: 10),
                       MaterialButton(
@@ -99,7 +103,8 @@ class AuthorisationPage extends StatelessWidget implements RoutableWidget {
                         shape:const BeveledRectangleBorder(
                           side: const BorderSide(color: Colors.white),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                        },
                       ),
                     ],
                   ),

@@ -1,7 +1,9 @@
 import 'package:body_control/const/strings.dart';
 import 'package:body_control/interface/routable.dart';
-import 'package:body_control/pages/form/field.dart';
+import 'package:body_control/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
+
+import 'field.dart';
 
 class LoginPage extends StatelessWidget implements RoutableWidget {
   @override
@@ -65,7 +67,9 @@ class LoginPage extends StatelessWidget implements RoutableWidget {
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                         shape: BeveledRectangleBorder(),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, HomePage().getRouteName());
+                        },
                       ),
                     ),
                     SizedBox(height: 15),

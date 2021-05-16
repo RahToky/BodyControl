@@ -1,5 +1,6 @@
 import 'package:body_control/const/strings.dart';
 import 'package:body_control/interface/routable.dart';
+import 'package:body_control/pages/intro/form/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -101,7 +102,8 @@ class _HealthFormPageState extends State<HealthFormPage> {
                     style: const TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   shape: const BeveledRectangleBorder(),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, LoginPage().getRouteName());},
                 ),
               ),
             ],

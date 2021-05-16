@@ -51,7 +51,7 @@ class _ConditionState extends State<Condition> {
             },
             child: const Text(''),
             shape:
-            const BeveledRectangleBorder(side: const BorderSide(color: Colors.white)),
+            BeveledRectangleBorder(side: const BorderSide(color: Colors.white),borderRadius: BorderRadius.circular(1)),
           ),
         ),
         const SizedBox(width: 25),
@@ -61,7 +61,7 @@ class _ConditionState extends State<Condition> {
             '$text',
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 18,
             ),
           )
               : customText,

@@ -1,13 +1,15 @@
 import 'dart:ui';
 
-import 'package:body_control/pages/authorisation/authorisation_page.dart';
-import 'package:body_control/pages/form/about_form_page.dart';
-import 'package:body_control/pages/form/health_form_page.dart';
-import 'package:body_control/pages/login/login_page.dart';
-import 'package:body_control/pages/onboarding/onboarding_page.dart';
+import 'package:body_control/pages/home/home_page.dart';
 import 'package:body_control/utils/colorUtil.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
+
+import 'pages/intro/form/about_form_page.dart';
+import 'pages/intro/form/health_form_page.dart';
+import 'pages/intro/onboarding/onboarding_page.dart';
+import 'pages/intro/authorisation/authorisation_page.dart';
+import 'pages/intro/form/login_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,10 +37,9 @@ class _MyAppState extends State<MyApp> {
         AboutUserFormPage().getRouteName(): (context) => AboutUserFormPage(),
         HealthFormPage().getRouteName(): (context) => HealthFormPage(),
         LoginPage().getRouteName(): (context) => LoginPage(),
+        HomePage().getRouteName(): (context) => HomePage(),
       },
-      home: (false)
-          ? LoginPage()
-          : SplashScreen(
+      home: SplashScreen(
               seconds: 3,
               navigateAfterSeconds: OnBoardingPages(),
               backgroundColor: Colors.blue,
