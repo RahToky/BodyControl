@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 
 class BottomTabBar extends StatelessWidget {
   final defaultColor = Colors.grey;
+  final TabController tabController;
+
+  BottomTabBar(this.tabController);
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +17,7 @@ class BottomTabBar extends StatelessWidget {
         child: Container(
           color:Colors.white,
           child: TabBar(
+            controller: tabController,
             labelColor: selectedColor,
             labelPadding: EdgeInsets.only(bottom: 10),
             indicatorColor: Colors.transparent,

@@ -43,19 +43,23 @@ class ActualityPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.builder(
       itemCount: actualities.length,
-      itemBuilder: (context, index) => Padding(
-          padding: EdgeInsets.only(bottom: 5.0),
-          child: Column(
-            children: [
-              ActualityCard(
-                  actualities[index]['logo'],
-                  actualities[index]['title'],
-                  actualities[index]['image'],
-                  actualities[index]['logoColor'],
-                  false),
-              if (index > 0) ActualityPub(pubs[index-1]['imageUri'], pubs[index-1]['text'], pubs[index-1]['buttonText'])
-            ],
-          )),
+      itemBuilder: (context, index) => Column(
+        children: [
+          Padding(
+            padding: EdgeInsets.only(bottom: 5.0),
+            child: ActualityCard(
+                actualities[index]['logo'],
+                actualities[index]['title'],
+                actualities[index]['image'],
+                actualities[index]['logoColor'],
+                false),
+          ),
+          if (index > 0) Padding(
+            padding: EdgeInsets.only(bottom: 5.0),
+            child: ActualityPub(pubs[index-1]['imageUri'], pubs[index-1]['text'], pubs[index-1]['buttonText']),
+          )
+        ],
+      ),
     );
   }
 }
@@ -72,48 +76,51 @@ class ActualityPub extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width,
-      height: size.width * 0.35,
-      color: bgColor,
-      child: Row(
-        children: [
-          Flexible(flex: 3, child: Image.asset('$imageUri')),
-          Flexible(
-            flex: 4,
-            child: Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Flexible(
-                        child: Text(
-                          '$text',
-                          style: TextStyle(color: Colors.grey, fontSize: 20,),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 4,
-                          textAlign: TextAlign.start,
-                        ),
-                      ),
+    return Card(
+      margin: EdgeInsets.all(0),
+      elevation: 6,
+      child: Container(
+        width: size.width,
+        height: size.width * 0.35,
+        color: bgColor,
+        child: Row(
+          children: [
+            Container(width: size.width*0.4, child: Image.asset('$imageUri',fit: BoxFit.cover,)),
+            Container(
+              width: size.width*0.6,
+              padding: const EdgeInsets.all(15.0),
+              child: Center(
+                child: (buttonText == null)?_buildText():Container(
+                  child: Column(
+                      children: [
+                        _buildText(),
+                        Container(
+                          //margin: EdgeInsets.only(top:10),
+                          width: double.infinity,
+                          child: TextButton(
+                            child: Text('$buttonText',style:TextStyle(color: Colors.grey[200])),
+                            style: TextButton.styleFrom(
+                              side: BorderSide(color:Colors.grey[200]),
+                              shape: const BeveledRectangleBorder()
+                            ),
+                          ),
+                        )
+                      ],
                     ),
-
-                    if(buttonText != null)Container(
-                      width: double.infinity,
-                      child: TextButton(
-                        child: Text('$buttonText',style:TextStyle(color: Colors.white)),
-                        style: TextButton.styleFrom(
-                          side: BorderSide(color:Colors.white),
-                          shape: BeveledRectangleBorder()
-                        ),
-                      ),
-                    )
-                  ],
                 ),
-            ),
-            ),
-        ],
+              ),
+              ),
+          ],
+        ),
       ),
     );
   }
+
+  Widget _buildText() => Text(
+    '$text',
+    style: TextStyle(color: Colors.grey, fontSize: 20,),
+    overflow: TextOverflow.ellipsis,
+    maxLines: 4,
+    textAlign: TextAlign.start,
+  );
 }
